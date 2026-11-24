@@ -1,0 +1,13 @@
+{
+  "name": "manga-translator-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for real-time manga translation",
+  "private": true,
+  "scripts": {
+    "setup": "node setup.js"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.16.0",
+    "tesseract.js": "^5.1.1"
+  }
+}

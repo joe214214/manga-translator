@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Manga Translator - Offscreen Processing</title>
+</head>
+<body>
+  <!--
+    Offscreen Document — 漫画翻译器离屏文档
+    
+    此页面在后台运行，用户不可见。
+    职责：
+    1. 加载 Tesseract.js OCR 引擎
+    2. 接收截图图像数据
+    3. 预处理图像（灰度化、对比度增强）
+    4. 运行 OCR 识别日文文字
+    5. 返回识别结果（文字 + 位置信息）
+    
+    注意：此文件必须加载 tesseract.min.js，请先运行 setup.js
+  -->
+  <canvas id="processingCanvas" style="display:none;"></canvas>
+  <script src="../lib/tesseract/tesseract.min.js"></script>
+  <script src="offscreen.js"></script>
+</body>
+</html>

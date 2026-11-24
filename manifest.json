@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "漫画翻译器 - Manga Translator",
+  "version": "1.0.0",
+  "description": "实时将日本漫画翻译为中文，自动检测文字并嵌入翻译覆盖",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "offscreen",
+    "scripting"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "host_permissions": [
+    "<all_urls>",
+    "*://*/*",
+    "https://*/*",
+    "http://*/*",
+    "*://*.shonenjumpplus.com/*",
+    "https://translation.googleapis.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "css": ["styles/overlay.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "漫画翻译器",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "offscreen/*",
+        "lib/tesseract/*",
+        "lib/tesseract/traineddata/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

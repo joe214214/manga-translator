@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Unused / temporary OCR traineddata caches
+/*.traineddata
+lib/tesseract/traineddata/osd.traineddata
+lib/tesseract/traineddata/*.gz
+
+# Local test screenshots & logs
+live_browser_*.png
+*.log
+
+# Environment & OS files
+.env
+.env.*
+.DS_Store
+Thumbs.db
